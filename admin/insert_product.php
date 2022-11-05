@@ -8,7 +8,8 @@
 <script>tinymce.init({selector:'textarea'});</script>
 </head>
 <?php 
-	include 'includes/dbconfig.php';
+	include './includes/database/dbconfig.php';
+	include './includes/database/db.php';
 	if(isset($_POST['submit'])) {
 		$name = $_POST['name'];
 		$title = $_POST['title'];

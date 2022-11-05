@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * If the user is not logged in, redirect them to the protected page
+ */
 function protect_page()
 {
 	if (logged_in() === false) {
@@ -8,19 +11,35 @@ function protect_page()
 	}
 }
 
-function runQuery($query)
+/**
+ * If the folder doesn't exist, create it. If the file doesn't exist, create it.
+ * Error logging function.
+ */
+function logError()
 {
-	$result = mysql_query($query);
-	while ($row = mysql_fetch_assoc($result)) {
-		$resultset[] = $row;
-	}
-	if (!empty($resultset))
-		return $resultset;
-}
+	// Report all errors
+	// error_reporting(E_ALL);
 
-function numRows($query)
-{
-	$result  = mysql_query($query);
-	$rowcount = mysql_num_rows($result);
-	return $rowcount;
+	// Turn off error reporting
+	// error_reporting(0);
+
+	// Report runtime errors
+	error_reporting(E_ERROR | E_WARNING | E_PARSE);
+
+	$date = date("Y-m-d");
+	$fileName = $date . ".log";
+	$year = date("Y");
+	$month = date("F");
+
+	/* It's setting the error log to the file path. */
+	$folderPath = "./logs/errors/" . $year . "/" . $month;
+	$filePath = "./logs/errors/" . $year . "/" . $month . "/" . $fileName;
+
+	/* If the folder doesn't exist, create it. If the file doesn't exist, create it. */
+	if (!file_exists($folderPath)) {
+		mkdir($folderPath, 0777, true);
+	}
+
+	/* It's setting the error log to the file path. */
+	ini_set("error_log", $filePath);
 }

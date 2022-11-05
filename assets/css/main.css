@@ -1,0 +1,672 @@
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.wrapper {
+  padding: 20px;
+  height: auto;
+}
+header {
+  background-color: teal;
+  color: ghostwhite;
+  height: 1px;
+  display: table-row;
+}
+footer {
+  background-color: teal;
+  color: ghostwhite;
+  display: table-row;
+  height: 1px;
+  text-align: center;
+}
+.title {
+  float: left;
+  padding: 10px;
+}
+.clear {
+  clear: both;
+}
+.logo {
+  float: left;
+  width: auto;
+  height: auto;
+}
+.error {
+  color: red;
+}
+.top_menu {
+  float: right;
+  margin-top: 5px;
+}
+.top_menu a:link,
+a:visited {
+  text-decoration: none;
+  color: white;
+  /*border-left: 1px solid white;*/
+  margin-left: 5px;
+  padding-left: 8px;
+}
+.top_menu a:hover,
+a:active {
+  text-decoration: underline;
+  color: ghostwhite;
+}
+.img {
+  margin-left: 25px;
+  margin-top: 20px;
+  padding: 5px;
+  height: auto;
+  width: auto;
+  float: left;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid teal;
+  background-color: ghostwhite;
+}
+.img img {
+  display: inline;
+  margin: 10px;
+  border: 1px solid #ffffff;
+}
+.img a:hover img {
+  /* border: 1px solid #ffffff;*/
+  align-content: center;
+  align: center;
+}
+.buy {
+  text-align: center;
+  margin: 5px 85px 5px 85px;
+  /*color:#FFF;*/
+  display: block;
+  text-decoration: none;
+}
+.buy a:link,
+a:visited {
+  text-decoration: none;
+  display: block;
+  background-color: teal;
+  border-radius: 5px;
+  padding: 4px;
+}
+.buy a:hover,
+a:active {
+  text-decoration: none;
+}
+.desc {
+  text-align: center;
+  width: auto;
+  height: 30px;
+  background-color: teal;
+  color: ghostwhite;
+  padding: 2px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+#t01 {
+  border: 1px dotted #ccc;
+  margin-top: 5%;
+}
+#t01 tr,
+td {
+  border-collapse: collapse;
+  padding: 10px;
+  border-top: 1px dotted #ccc;
+}
+#t01 th {
+  border-collapse: collapse;
+  padding: 10px;
+  border-top: 1px dotted #ccc;
+}
+.inner1 {
+  margin-left: 12%;
+  float: left;
+}
+.inner2 {
+  margin-right: 12%;
+  float: right;
+}
+.p_tab {
+  margin-left: 25px;
+  margin-top: 20px;
+  padding: 5px;
+  height: auto;
+  width: auto;
+  float: left;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid teal;
+  background-color: ghostwhite;
+  float: !important;
+}
+.in_image {
+  margin-left: 25px;
+  margin-top: 20px;
+  padding: 5px;
+  height: auto;
+  width: auto;
+  float: right;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid teal;
+  background-color: ghostwhite;
+}
+.in_tab {
+  margin-left: 25px;
+  margin-top: 20px;
+  padding: 5px;
+  height: auto;
+  width: auto;
+  float: left;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid teal;
+  background-color: ghostwhite;
+  float: left;
+}
+.terms {
+  margin-left: 25px;
+  margin-top: 20px;
+  padding: 5px;
+  height: auto;
+  width: auto;
+  border-radius: 4px;
+  border: 1px solid teal;
+  background-color: cornsilk;
+  list-style-type: none;
+}
+.p_desc {
+}
+.myButton {
+  -moz-box-shadow: inset 0px 1px 0px 0px #cf866c;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #cf866c;
+  box-shadow: inset 0px 1px 0px 0px #cf866c;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #d0451b),
+    color-stop(1, #bc3315)
+  );
+  background: -moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background: -webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background: -o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background: -ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+  background-color: #d0451b;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #942911;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #854629;
+}
+.myButton:hover {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #bc3315),
+    color-stop(1, #d0451b)
+  );
+  background: -moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+  background: -webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+  background: -o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+  background: -ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+  background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
+  background-color: #bc3315;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+/*Add to cart css button*/
+
+.cart {
+  -moz-box-shadow: inset 0px 1px 0px 0px #54a3f7;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #54a3f7;
+  box-shadow: inset 0px 1px 0px 0px #54a3f7;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #007dc1),
+    color-stop(1, #0061a7)
+  );
+  background: -moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background: -webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background: -o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background: -ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1', endColorstr='#0061a7',GradientType=0);
+  background-color: #007dc1;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 4px;
+  border: 1px solid #124d77;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #154682;
+}
+.cart:hover {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #0061a7),
+    color-stop(1, #007dc1)
+  );
+  background: -moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+  background: -webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+  background: -o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+  background: -ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+  background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
+  background-color: #0061a7;
+}
+
+.cart:active {
+  position: relative;
+  top: 1px;
+}
+
+.heading {
+  text-align: center;
+}
+
+.empty-cart {
+  /* The image used */
+  background-image: url("./assets/images/empty-cart.png");
+
+  /* Full height */
+  height: 100%;
+  width: 100%;
+
+  /* Center and scale the image nicely */
+  border: 1px solid rgba(200, 200, 200, 0.5);
+  height: 75vh;
+  width: 100hh;
+  background-color: rgba(200, 200, 200, 0.1);
+}
+
+/* On the flex container */
+.flexcontainer {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	space-around, stretch */
+	-webkit-align-content: flex-end;
+	align-content: flex-end;
+ }
+	   
+.h2-empty-cart {
+	color: #222;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	space-around, stretch */
+	-webkit-align-content: flex-end;
+	align-content: flex-end;
+}
+
+.css-protected {
+	margin: 1em;
+	padding: 1em;
+	border: 1px solid rgba(200, 200, 200, 0.5);
+	background-color: rgba(200, 200, 200, 0.1);
+	border-radius: 5px;
+	height: 70vh
+}
+
+  .btn-buy-now {
+	background: #3498db;
+	background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+	background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+	background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+	background-image: -o-linear-gradient(top, #3498db, #2980b9);
+	background-image: linear-gradient(to bottom, #3498db, #2980b9);
+	-webkit-border-radius: 4;
+	-moz-border-radius: 4;
+	border-radius: 4px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 16px;
+	padding: 8px 15px 8px 15px;
+	text-decoration: none;
+  }
+  
+  .btn-buy-now:hover {
+	background: #3cb0fd;
+	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+	text-decoration: none;
+  }
+
+  .btn-add-to-cart {
+	background: #d0451b;
+	background-image: -webkit-linear-gradient(top, #d0451b, #d0451b);
+	background-image: -moz-linear-gradient(top, #d0451b, #d0451b);
+	background-image: -ms-linear-gradient(top, #d0451b, #d0451b);
+	background-image: -o-linear-gradient(top, #d0451b, #d0451b);
+	background-image: linear-gradient(to bottom, #d0451b, #d0451b);
+	-webkit-border-radius: 4;
+	-moz-border-radius: 4;
+	border-radius: 4px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 15px;
+	padding: 8px 15px 8px 15px;
+	border: solid #ffaa22 1px;
+	text-decoration: none;
+  }
+  
+  .btn-add-to-cart:hover {
+	background: #d0451b;
+	background-image: -webkit-linear-gradient(top, #d0451b, #d0451b);
+	background-image: -moz-linear-gradient(top, #d0451b, #d0451b);
+	background-image: -ms-linear-gradient(top, #d0451b, #d0451b);
+	background-image: -o-linear-gradient(top, #d0451b, #d0451b);
+	background-image: linear-gradient(to bottom, #d0451b, #d0451b);
+	text-decoration: none;
+	cursor: pointer;
+  }
+				

@@ -1,48 +1,41 @@
 <?php include 'includes/overall/oheader.php';
-error_reporting(0);
-error_reporting(E_ERROR);
-session_start();
-$_SESSION['user_id'] = $_GET['id'];
+
+$_SESSION['user_id'] = !empty($_GET['id']) ? $_GET['id'] : "";
+$quantity = !empty($_REQUEST['quantity']) ? $_REQUEST['quantity'] : "";
 
 ?>
 <div class="wrapper">
-	<section class="container">
-
+	<section class="flexcontainer">
 		<?php
+		$db = new Db();
 		$sql = "SELECT * FROM products ORDER BY id ASC";
-		$result = $conn->query($sql);
-
-		// output data of each row
-		while ($row = $result->fetch_assoc()) {
-			$resultset[] = $row;
-			$products = $resultset;
-		}
-
-		if (!empty($resultset)) {
-			foreach ($products as $key => $value) {
-				/*print_r($products);
-				echo $products[$key]["image"];*/
+		$data = $db->query($sql)->fetchAll($sql);
+		if (!empty($data)) {
+			foreach ($data as $key => $value) {
 		?>
 				<div class="img">
-					<form method="post" action="index.php?quantity=<?php echo $_REQUEST['quantity']; ?>&action=add&pid=<?php echo $products[$key]["p_id"]; ?>">
-						<img src="<?php $img = $products[$key]["image"];
-									echo substr($img, 1); ?>" alt="<?php echo $products[$key]["name"]; ?>" width="250" height="150">
+					<form method="post" action="index.php?quantity=<?php echo $quantity; ?>&action=add&pid=<?php echo $value["p_id"]; ?>">
+						<img src="<?php $img = $value["image"];
+									echo substr($img, 1); ?>" alt="<?php echo $value["name"]; ?>" width="250" height="150">
 						<div class="desc">
-							<b><?php echo $products[$key]["title"]; ?></b>
+							<b><?php echo $value["title"]; ?></b>
 						</div>
-						<div>
-							<input type="hidden" name="pkey" value="<?php echo $products[$key]["p_id"]; ?>" />
+						<div class="flexcontainer">
+							<input type="hidden" name="pkey" value="<?php echo $value["p_id"]; ?>" />
 							<!--<div class="buy">-->
-							<p><a href="poduct.php?id=<?php echo $products[$key]["id"]; ?>" class="myButton">Buy Now</a></p>
-							<!--<p><a href="index.php?action=add&pid=<?php //echo $products[$key]["id"]; 
+							<p><a href="poduct.php?id=<?php echo $value["id"]; ?>" class="btn-buy-now">Buy Now</a></p>
+							&nbsp;
+							<!--<p><a href="index.php?action=add&pid=<?php //echo $value["id"]; 
 																		?>" class="cart">Add to cart</a></p>-->
-							<div> <input type="submit" value="Add to cart" name="submit" class="cart" /></div>
+							<div> <input type="submit" value="Add to cart" name="submit" class="btn-add-to-cart" /></div>
 						</div>
 
 					</form>
 				</div>
 		<?php }
-		} ?>
+		}
+		$db->close();
+		?>
 		<div class="clear"></div>
 
 	</section>
