@@ -670,3 +670,7 @@ td {
 	cursor: pointer;
   }
 				
+  
+  div.css-product-page-image > img{
+    width: 50px;
+  }

@@ -9,7 +9,7 @@ $data = $db->runQueryObj($sql);
 if ($db->numRows($sql)) {
 ?>
 	<div class="flexcontainer">
-		<div class="img" >
+		<div class="img css-product-page-image" >
 			<img src="<?php $img = $data->image;
 						echo substr($img, 1); ?>" alt="<?php echo $data->name; ?>" style="height: 65vh;"  />
 		</div>
