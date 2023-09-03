@@ -16,6 +16,8 @@
 <?php
 include '../includes/database/dbconfig.php';
 include '../includes/database/db.php';
+include '../includes/database/Doctrine.php';
+
 if (isset($_POST['submit'])) {
 	$name = $_POST['name'];
 	$title = $_POST['title'];
@@ -45,15 +47,11 @@ if (isset($_POST['submit'])) {
 
 	if (empty($errors) == true) {
 		move_uploaded_file($file_tmp, $image_path);
-
-		$db = new Db();
-		$query = "INSERT INTO products(name, title, description, price, image) VALUES('$name', '$title', '$description', '$price', '$image_path')";
-		$db->query($query);
-		$last_id = $db->lastInsertID();
+		$db = new Doctrine();
+		$result = $db->connection()->insert('products', ['name' => $name, 'title' => $title, 'description' => $description, 'price' => $price, 'image' => $image_path]);
+		$last_id = ($db->connection()->lastInsertId());
 		$bb = 'pro' . str_pad($last_id, 3, '0', STR_PAD_LEFT);
-		$sql = "UPDATE products SET p_id = '$bb' WHERE id = '$last_id'";
-		$db->query($sql);
-
+		$db->connection()->update('products', ['p_id' => $bb], ['id' => $last_id]);
 		$success = "Successfully Updated!!";
 	} else if ($name = "" || $price = "" || $title = "" || $description = "") {
 		echo "<script>alert('Please fill all details.')</script>";

@@ -7,9 +7,11 @@ $quantity = !empty($_REQUEST['quantity']) ? $_REQUEST['quantity'] : "";
 <div class="wrapper">
 	<section class="flexcontainer">
 		<?php
-		$db = new Db();
+		$db = new Doctrine();
 		$sql = "SELECT * FROM products ORDER BY id ASC";
-		$data = $db->query($sql)->fetchAll($sql);
+		$stmt = $db->connection()->prepare($sql);
+		$result = $stmt->executeQuery();
+		$data = $result->fetchAllAssociative();
 		if (!empty($data)) {
 			foreach ($data as $key => $value) {
 		?>
@@ -32,9 +34,9 @@ $quantity = !empty($_REQUEST['quantity']) ? $_REQUEST['quantity'] : "";
 
 					</form>
 				</div>
-		<?php }
+		<?php 
+			}
 		}
-		$db->close();
 		?>
 		<div class="clear"></div>
 

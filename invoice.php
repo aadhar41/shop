@@ -19,6 +19,7 @@ $u_email = $u_row['email'];
 $u_mobile = $u_row['mobile'];
 if ($data) {
 ?>
+
 	<div class="wrapper">
 		<div class="in_image">
 			<img src="<?php $img = $data->image;

@@ -1,5 +1,6 @@
 <?php session_start();
 // error_reporting(E_ERROR);
+include './includes/database/Doctrine.php';
 include './includes/database/dbconfig.php';
 include './includes/database/db.php';
 include './includes/functions/user.php';

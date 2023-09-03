@@ -40,6 +40,16 @@ class Db
         $this->connection->set_charset($charset);
     }
 
+
+    /**
+     * The function returns the connection object.
+     * 
+     * @return object the value of the variable ->connection.
+     */
+    public function connection() {
+        return $this->connection;
+    }
+
     /**
      * It takes a query and an array of arguments, and binds the arguments to the query.
      * 
